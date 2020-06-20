@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block title %}Log In{% endblock title %}
+
+{% block content %}
+
+<h1 style="text-align: center">Log In</h1>
+    <br>
+    <br>
+<form method="post" style="margin-bottom: 75px; text-align: center; position: relative; margin-right: 24% ">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class=" btn btn-primary" type="submit" value="submit">
+        Log In</button>
+</form>
+
+
+{% endblock  %}
+</html>
