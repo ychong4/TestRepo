@@ -1,0 +1,52 @@
+{% extends "pethome/base.html" %}
+{% load static %}
+{% block title %}
+  Your Cart
+{% endblock %}
+{% block content %}
+  <h1>Your Cart</h1>
+  <table  class="w3-table" >
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th></th>
+        <th>Pet Name</th>
+        <th>Remove</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+        {% with pet=item.pet %}
+          <tr>
+            <td>
+              <a href="{{ pet.get_absolute_url }}">
+                <img src="{% if pet.image %}{{ pet.image.url }}
+                {% else %}{% static "img/no_image.png" %}{% endif %}" width="500" height="300">
+              </a>
+            </td>
+            <td></td>
+            <td>{{ pet.name }}</td>
+            <td>
+              <form action="{% url "cart:cart_remove" pet.id %}" method="post">
+                <input type="submit" value="Remove">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td class="num">${{ item.total_price }}</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td></td>
+        <td></td>
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">${{ cart.get_total_price }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="text-right">
+    <a href="{% url "orders:order_create" %}" ><input type="submit" value="Checkout"></a>
+  </p>
+{% endblock %}

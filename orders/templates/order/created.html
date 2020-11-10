@@ -1,0 +1,13 @@
+{% extends "pethome/base.html" %}
+{% block title %}
+  Thank you
+{% endblock %}
+{% block content %}
+  <h1>Thank you</h1>
+  <p>Your order has been successfully completed. A member from our team will contact you regarding the order soon. </p>
+  <br>
+  <p>Your order number is
+  <strong>{{ order.id }}</strong>.</p>
+
+
+{% endblock %}

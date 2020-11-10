@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'pethome/base.html' %}
+
+{% block content %}
+<body>
+    <div class="account-div">
+        <h1>User Profile</h1>
+        <br>
+        <h2>Account Information</h2>
+        <h4>Username: {{ user.username }}</h4>
+        <h4>Email: {{ user.email }}</h4>
+
+
+        <br>
+        <br>
+        <h2>Change Password:</h2>
+        <button class="btn btn-secondary"><a href="{% url 'password_change' %}">Click Here</a></button>
+    </div>
+</body>
+{% endblock %}
+</html>
