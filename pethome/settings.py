@@ -135,18 +135,18 @@ BRAINTREE_CONF = braintree.Configuration(
     BRAINTREE_PRIVATE_KEY
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ychongdjangotest@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('chongchong1')
-# EMAIL_HOST_PASSWORD = 'clear_text_for_local_testing'
+EMAIL_HOST_PASSWORD = 'nxzkjwgrpslwonue'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
